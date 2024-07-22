@@ -1,0 +1,13 @@
+[package]
+name = "viperbar"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Utility first wayland bar"
+
+[dependencies]
+gtk = "0.18.1"
+glib = "0.18.2"
+gdk = "0.18.0"
+gtk-layer-shell = "0.8.0"
+chrono = "0.4"
