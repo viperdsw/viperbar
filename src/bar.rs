@@ -22,28 +22,22 @@ pub fn create_bar() -> (Window, GtkBox) {
     let hbox = GtkBox::new(Orientation::Horizontal, 5);
     window.add(&hbox);
 
+    apply_bar_css(&window);
+
     (window, hbox)
 }
 
-pub fn apply_css() {
-    let provider = gtk::CssProvider::new();
-    provider
-        .load_from_data(
-            b"
+fn apply_bar_css(window: &Window) {
+    let css = gtk::CssProvider::new();
+    css.load_from_data(
+        b"
         window {
-            background-color: #2e3440;
-        }
-        label {
-            color: white;
-            font-size: 14px;
+            background-color: transparent;
         }
     ",
-        )
-        .expect("Failed to load CSS");
+    )
+    .expect("Failed to load CSS");
 
-    gtk::StyleContext::add_provider_for_screen(
-        &gdk::Screen::default().expect("Error initializing gtk css provider."),
-        &provider,
-        gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
-    );
+    let style_context = window.style_context();
+    style_context.add_provider(&css, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
 }
