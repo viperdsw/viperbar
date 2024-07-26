@@ -1,3 +1,5 @@
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/) 
+
 # Viperbar
 
 A blazingly (cause its the rust meme) utility bar for Wayland (and maybe not Wayland?) compositors.
