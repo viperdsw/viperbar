@@ -1,5 +1,6 @@
 mod bar;
 mod close_button_module;
+mod config;
 mod container;
 mod quick_launcher;
 mod time_module;

@@ -1,3 +1,5 @@
+use config::clock_module_config::read_clock_module_config;
+
 use chrono::Local;
 use glib::{timeout_add_local, ControlFlow};
 use gtk::prelude::*;
@@ -5,7 +7,11 @@ use gtk::{Box as GtkBox, CssProvider, Label};
 use std::cell::RefCell;
 use std::rc::Rc;
 
+use crate::config;
+
 pub fn create_time_module(hbox: &GtkBox) -> Rc<RefCell<Label>> {
+    let clock_config = read_clock_module_config();
+
     let time_label = Label::new(None);
     apply_time_module_css(&time_label);
     hbox.pack_end(&time_label, false, false, 5);
@@ -15,7 +21,9 @@ pub fn create_time_module(hbox: &GtkBox) -> Rc<RefCell<Label>> {
     let update_time = {
         let time_label = Rc::clone(&time_label);
         move || {
-            let time = Local::now().format("%H:%M:%S").to_string();
+            let time = Local::now()
+                .format(&clock_config.format.to_string())
+                .to_string();
             time_label.borrow().set_text(&time);
             ControlFlow::Continue
         }
