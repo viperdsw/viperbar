@@ -10,7 +10,7 @@ This docs page will move one day to its own wiki thing but now it can't do much.
 
 We support creating a custom config, for now the config only accepts 1 key.
 
-Must create a config in `~/.config/viperbar/viperbar.json`.
+Must create a config in `~/.config/viperbar/viperbar.json`. For best results, I recommend installing and using a nerdfont on your system to display icons. However I do have plans to try and get other icon types (svg's) working.
 
 Example config:
 
