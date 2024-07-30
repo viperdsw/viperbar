@@ -5,6 +5,7 @@ mod container;
 mod quick_launcher;
 mod taskbar_module;
 mod time_module;
+mod weather_module;
 
 use gtk::prelude::*;
 use std::{cell::RefCell, rc::Rc};
@@ -20,6 +21,7 @@ fn main() {
     let _quick_launchers: Rc<RefCell<Vec<gtk::Button>>> =
         Rc::new(RefCell::new(quick_launcher::create_quick_launchers(&hbox)));
 
+    let _weather_label: Rc<RefCell<gtk::Label>> = weather_module::create_weather_module(&hbox);
     // TODO: Fix this to work properly. it only shows discord lmaoo
     // let _taskbar = taskbar_module::create_application_viewer(&hbox);
 
