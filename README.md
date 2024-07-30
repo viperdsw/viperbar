@@ -1,4 +1,4 @@
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/) 
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
 # Viperbar
 
@@ -20,6 +20,11 @@ Example config:
 
 ```json
 {
+  "weather": {
+    "api_key": "<YOUR_OPENWEATHERMAP_API_KEY>",
+    "country_code": "UK", // This is the ISO 3166-1 alpha-2 standard, 2 letter country codes
+    "city": "London"
+  },
   "clock": {
     "format": "%d/%m%Y %H/%M/%S"
   },
