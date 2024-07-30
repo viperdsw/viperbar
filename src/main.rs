@@ -3,6 +3,7 @@ mod close_button_module;
 mod config;
 mod container;
 mod quick_launcher;
+mod taskbar_module;
 mod time_module;
 
 use gtk::prelude::*;
@@ -18,6 +19,9 @@ fn main() {
     let _time_label: Rc<RefCell<gtk::Label>> = time_module::create_time_module(&hbox);
     let _quick_launchers: Rc<RefCell<Vec<gtk::Button>>> =
         Rc::new(RefCell::new(quick_launcher::create_quick_launchers(&hbox)));
+
+    // TODO: Fix this to work properly. it only shows discord lmaoo
+    // let _taskbar = taskbar_module::create_application_viewer(&hbox);
 
     window.connect_delete_event(|_, _| {
         gtk::main_quit();
